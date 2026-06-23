@@ -1,122 +1,62 @@
-///
-/// Massively by HTML5 UP
-/// html5up.net | @ajlkn
-/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-///
+// Misc.
+	$misc: (
+		z-index-base:		10000
+	);
 
-/* Table */
+// Duration.
+	$duration: (
+		menu:				0.5s,
+		transition:			0.2s
+	);
 
-	.table-wrapper {
-		-webkit-overflow-scrolling: touch;
-		overflow-x: auto;
-	}
+// Size.
+	$size: (
+		element-height:		3rem,
+		element-margin:		2rem,
+		padding:			2rem,
+		wrapper:			72rem
+	);
 
-	table {
-		margin: 0 0 _size(element-margin) 0;
-		width: 100%;
+// Font.
+	$font: (
+		family:				('Merriweather', Georgia, serif),
+		family-heading:		('Source Sans Pro', Helvetica, sans-serif),
+		family-fixed:		('Courier New', monospace),
+		weight:				300,
+		weight-bold:		600,
+		weight-heading:		900
+	);
 
-		tbody {
-			tr {
-				border: solid 1px;
-				border-left: 0;
-				border-right: 0;
-			}
-		}
+// Palette.
+	$palette: (
+		wrapper-bg:			#212931,
 
-		td {
-			padding: 0.75rem 0.75rem;
-		}
+		bg:					#ffffff,
+		fg:					#212931,
+		fg-bold:			#212931,
+		fg-light:			mix(#212931, #ffffff, 50%),
+		border:				mix(#dcdcdc, #ffffff, 50%),
+		border-bg:			rgba(#dcdcdc, 0.25),
+		accent:				#18bfef,
 
-		th {
-			font-family: _font(family-heading);
-			font-size: 0.8rem;
-			font-weight: _font(weight-heading);
-			letter-spacing: 0.075em;
-			line-height: 1.5;
-			padding: 0 0.75rem 0.75rem 0.75rem;
-			text-align: left;
-			text-transform: uppercase;
+		alt: (
+			bg:				#f5f5f5,
+			fg:				#717981,
+			fg-bold:		#717981,
+			fg-light:		mix(#717981, #f5f5f5, 50%),
+			border:			mix(#dcdcdc, #f5f5f5, 75%),
+			border-bg:		rgba(#dcdcdc, 0.5),
+			accent:			#18bfef,
+		),
 
-			@include breakpoint('<=medium') {
-				font-size: 0.9rem;
-			}
-		}
-
-		thead {
-			border-bottom: solid 2px;
-		}
-
-		tfoot {
-			border-top: solid 2px;
-		}
-
-		&.alt {
-			border-collapse: separate;
-
-			tbody {
-				tr {
-					td {
-						border: solid 1px;
-						border-left-width: 0;
-						border-top-width: 0;
-
-						&:first-child {
-							border-left-width: 1px;
-						}
-					}
-
-					&:first-child {
-						td {
-							border-top-width: 1px;
-						}
-					}
-				}
-			}
-
-			thead {
-				border-bottom: 0;
-			}
-
-			tfoot {
-				border-top: 0;
-			}
-		}
-	}
-
-	@mixin color-table($p: null) {
-		table {
-			tbody {
-				tr {
-					border-color: _palette($p, border);
-
-					&:nth-child(2n + 1) {
-						background-color: _palette($p, border-bg);
-					}
-				}
-			}
-
-			th {
-				color: _palette($p, fg-bold);
-			}
-
-			thead {
-				border-bottom-color: _palette($p, border);
-			}
-
-			tfoot {
-				border-top-color: _palette($p, border);
-			}
-
-			&.alt {
-				tbody {
-					tr {
-						td {
-							border-color: _palette($p, border);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	@include color-table;
+		invert: (
+			bg:				#1e252d,
+			bg-alt:			#1e252d,
+			fg:				#ffffff,
+			fg-bold:		#ffffff,
+			fg-light:		rgba(#ffffff, 0.5),
+			border:			#ffffff,
+			border-bg:		rgba(#ffffff,0.075),
+			accent:			#18bfef,
+		),
+	);
