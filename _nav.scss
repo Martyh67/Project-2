@@ -4,45 +4,82 @@
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
-/* Basic */
+/* Nav */
 
-	// MSIE: Required for IEMobile.
-		@-ms-viewport {
-			width: device-width;
-		}
+	#nav {
+		@include color-list(invert);
+		@include color-typography(invert);
+		@include vendor('display', 'flex');
+		@include vendor('transition', (
+			'transform 1s ease',
+			'opacity 1s ease'
+		));
+		background: rgba(255,255,255,0.175);
+		height: 4rem;
+		line-height: 4rem;
+		margin: -4rem auto 0 auto;
+		overflow: hidden;
+		padding: 0 2rem 0 0;
+		position: relative;
+		width: calc(100% - #{_size(padding) * 2});
+		max-width: _size(wrapper);
+		z-index: 2;
 
-	// MSIE: Prevents scrollbar from overlapping content.
-		body {
-			-ms-overflow-style: scrollbar;
-		}
+		ul {
+			&.links {
+				@include vendor('display', 'flex');
+				@include vendor('flex-grow', '1');
+				@include vendor('flex-shrink', '1');
+				font-family: _font(family-heading);
+				font-weight: _font(weight-heading);
+				letter-spacing: 0.075em;
+				list-style: none;
+				margin-bottom: 0;
+				padding-left: 0;
+				text-transform: uppercase;
 
-	// Ensures page width is always >=320px.
-		@include breakpoint('<=xsmall') {
-			html, body {
-				min-width: 320px;
-			}
-		}
+				li {
+					display: block;
+					padding-left: 0;
 
-	// Set box model to border-box.
-	// Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
-		html {
-			box-sizing: border-box;
-		}
+					a {
+						@include vendor('transition', (
+							'background-color #{_duration(transition)} ease-in-out',
+							'color #{_duration(transition)} ease-in-out'
+						));
+						display: block;
+						font-size: 0.8rem;
+						outline: none;
+						padding: 0 2rem;
 
-		*, *:before, *:after {
-			box-sizing: inherit;
-		}
+						&:hover {
+							color: inherit !important;
+							background-color: transparentize(_palette(invert, fg), 0.9);
+						}
+					}
 
-	body {
+					&.active {
+						background-color: _palette(invert, fg);
 
-		background-color: _palette(invert, bg);
+						a {
+							color: _palette(invert, bg);
 
-		// Stops initial animations until page loads.
-			&.is-preload {
-				*, *:before, *:after {
-					@include vendor('animation', 'none !important');
-					@include vendor('transition', 'none !important');
+							&:hover {
+								color: _palette(invert, accent) !important;
+							}
+						}
+					}
 				}
 			}
 
+			&.icons {
+				@include vendor('flex-grow', '0');
+				@include vendor('flex-shrink', '0');
+				margin-bottom: 0;
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			display: none;
+		}
 	}
